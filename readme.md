@@ -1,4 +1,20 @@
-# Bones
+*Usage:*
+
+```bash
+grunt init
+```
+
+rename library/dev-scripts.example.php to library/dev-scripts.php
+
+```bash
+grunt dev
+```
+
+```bash
+grunt build
+```
+
+## Bones
 A Lightweight Wordpress Development Theme
 
 Bones is designed to make the life of developers easier. It's built
