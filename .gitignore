@@ -63,3 +63,4 @@ temp/
 *.codekit
 *.scssc
 library/css/*
+library/dev-scripts.php
