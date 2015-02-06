@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 
-			<div id="content">
+			<div class="content">
 
-				<div id="inner-content">
+				<div class="inner-content">
 
-					<main id="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+					<main class="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 						<article id="post-not-found" class="hentry">
 

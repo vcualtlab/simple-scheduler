@@ -14,7 +14,7 @@
 
 <?php get_header(); ?>
 
-			<div id="content">
+			<div class="content">
 
 				<div id="inner-content" class="wrap cf">
 

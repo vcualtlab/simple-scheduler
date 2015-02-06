@@ -6,12 +6,12 @@ LAYOUT & GRID STYLES
   @include container();
 }
 
-#inner-content, #inner-footer, #inner-header {
+.inner-content, .inner-footer, .inner-header {
   @include container();
   overflow: hidden;
 }
 
-#main {
+.main {
   overflow: hidden;
 }
 

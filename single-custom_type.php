@@ -17,11 +17,11 @@
 
 <?php get_header(); ?>
 
-			<div id="content">
+			<div class="content">
 
-				<div id="inner-content">
+				<div class="inner-content">
 
-					<main id="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+					<main class="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
