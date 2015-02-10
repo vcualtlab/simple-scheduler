@@ -339,11 +339,11 @@ add_action('wp_enqueue_scripts', 'bones_fonts');
 	) );
 
 /*
-are_we_live() is a function for testing our environment. 
+we_are_live() is a function for testing our environment. 
 @returns true if on production server false if not
 */
 
-function are_we_live(){
+function we_are_live(){
   $current_server = $_SERVER['HTTP_HOST']; 
 
   if ( $current_server == 'arts.vcu.edu' ){
@@ -354,16 +354,15 @@ function are_we_live(){
 }
 
 /*
-get_development_scripts() tests our environment with are_we_live()
+get_development_scripts() tests our environment with we_are_live()
 @returns the appropriate scripts if local
 
 use [grunt sync] to get ports for the last three scripts
 */
 function get_development_scripts(){
 
-  if ( !are_we_live() ){
-    $descripts = include( 'library/dev-scripts.php' );
-    return $devscripts;
+  if ( !we_are_live() ){
+    include( 'library/dev-scripts.php' );
   }
 
 }

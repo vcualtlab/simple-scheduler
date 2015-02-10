@@ -149,7 +149,7 @@ function bones_scripts_and_styles() {
 		wp_enqueue_script( 'bones-modernizr' );
 		
     // check environment before outputting appropriate stylesheet
-    if ( are_we_live() ){
+    if ( we_are_live() ){
       wp_enqueue_style( 'bones-stylesheet-min' );  
     } else {
       wp_enqueue_style( 'bones-stylesheet' );
@@ -166,7 +166,7 @@ function bones_scripts_and_styles() {
 		*/
 		wp_enqueue_script( 'jquery' );
     // check environment before outputting appropriate script
-		if ( are_we_live() ){
+		if ( we_are_live() ){
       wp_enqueue_script( 'bones-js-min' );  
     } else {
       wp_enqueue_script( 'bones-js' );
