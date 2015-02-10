@@ -110,28 +110,6 @@ module.exports = function(grunt) {
                 }]
             }
         },
- 
-        devcode : {
-          options :
-          {
-            html: true,        // html files parsing?
-            js: true,          // javascript files parsing?
-            css: true,         // css files parsing?
-            clean: true,       // removes devcode comments even if code was not removed
-            block: {
-              open: 'devcode', // with this string we open a block of code
-              close: 'endcode' // with this string we close a block of code
-            },
-            dest: '/'       // default destination which overwrittes environment variable
-          },
-          dist : {             // settings for task used with 'devcode:dist'
-            options: {
-                source: '/',
-                dest: '/',
-                env: 'production'
-            }
-          }
-        },
 
         concurrent: {
             watch: {
@@ -173,5 +151,5 @@ module.exports = function(grunt) {
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask('init', ['build']);
     grunt.registerTask('dev', ['browserSync','watch']);
-    grunt.registerTask('build', ['imagemin', 'compass:dist', 'autoprefixer', 'cmq', 'cssmin', 'concat', 'uglify','devcode:dist']);
+    grunt.registerTask('build', ['imagemin', 'compass:dist', 'autoprefixer', 'cmq', 'cssmin', 'concat', 'uglify']);
 };
