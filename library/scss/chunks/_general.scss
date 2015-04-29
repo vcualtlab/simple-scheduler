@@ -3,10 +3,9 @@ GENERAL STYLES
 *********************/
 
 body {
+  color: $black;
   font-family: $serif;
   font-size: 100%;
   line-height: 1.5;
-  color: $text-color;
-  background-color: $f-blue;
   -webkit-font-smoothing: antialiased;
 }
