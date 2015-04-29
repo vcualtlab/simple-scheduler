@@ -1,3 +1,12 @@
+*Installation (only required if not using vvvcuarts vagrant)*
+```bash
+npm install
+```
+
+```bash
+bower install
+```
+
 *Usage:*
 
 ```bash
