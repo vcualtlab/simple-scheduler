@@ -7,6 +7,12 @@
 Bones.esproj/
 
 ############
+## Bower
+############
+
+bower_components/
+
+############
 ## Grunt
 ############
 

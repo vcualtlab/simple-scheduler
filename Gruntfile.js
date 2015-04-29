@@ -3,25 +3,29 @@ module.exports = function(grunt) {
     // 1. All configuration goes here
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
- 
-        compass: {
-          dist: {
-            options: {
-              cssDir: 'library/css',
-              sassDir: 'library/scss',
-              environment: 'development',
-              relativeAssets: true,
-              outputStyle: 'expanded',
-              raw: 'preferred_syntax = :scss\n',
-              require: ['susy','breakpoint']
-            }
+
+        // Grunt-sass 
+        sass: {
+          app: {
+            files: [{
+              expand: true,
+              cwd: 'library/scss',
+              src: ['*.scss'],
+              dest: 'library/css',
+              ext: '.css'
+            }]
+          },
+          options: {
+            sourceMap: true, 
+            outputStyle: 'nested', 
+            imagePath: "library/images",
           }
         },
 
         watch: {
             scss: {
                 files: ['library/scss/**/*.scss'],
-                tasks: ['compass']
+                tasks: ['sass']
             },
             css: {
                 files: ['library/css/**/*.css']
@@ -113,7 +117,7 @@ module.exports = function(grunt) {
 
         concurrent: {
             watch: {
-                tasks: ['watch', 'compass', 'browserSync'],
+                tasks: ['watch', 'sass', 'browserSync'],
                 options: {
                     logConcurrentOutput: true
                 }
@@ -124,7 +128,7 @@ module.exports = function(grunt) {
     // 3. Where we tell Grunt what plugins to use
  
     // Sass
-    grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-combine-media-queries');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -137,12 +141,6 @@ module.exports = function(grunt) {
     // Images
     grunt.loadNpmTasks('grunt-contrib-imagemin');
  
-    // Clean
-    grunt.loadNpmTasks('grunt-contrib-clean');
- 
-    // DevCode
-    grunt.loadNpmTasks('grunt-devcode');
-   
     // Browser Reload + File Watch
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -151,5 +149,5 @@ module.exports = function(grunt) {
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask('init', ['build']);
     grunt.registerTask('dev', ['browserSync','watch']);
-    grunt.registerTask('build', ['imagemin', 'compass:dist', 'autoprefixer', 'cmq', 'cssmin', 'concat', 'uglify']);
+    grunt.registerTask('build', ['sass', 'autoprefixer', 'cmq', 'cssmin', 'concat', 'uglify']);
 };

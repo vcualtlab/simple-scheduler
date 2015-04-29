@@ -1,20 +1,30 @@
-/*! Made with Bones: http://themble.com/bones :) */
-
 /******************************************************************
-Site Name:
-Author:
+Site Name: VCUarts
+Author: VCUarts Web Dev Team
 
 Stylesheet: Main Stylesheet
 
-Here's where the magic happens. Here, you'll see we are calling in
-the separate media queries. The base mobile goes outside any query
-and is called at the beginning, after that we call the rest
-of the styles inside media queries.
-
-Helpful articles on Sass file organization:
-http://thesassway.com/advanced/modular-css-naming-conventions
-
 ******************************************************************/
+
+@import "../../bower_components/susy/sass/susy";
+@import "../../bower_components/breakpoint-sass/stylesheets/breakpoint";
+
+$susy: (
+  columns: 12,
+  gutters: (2/3),
+  math: fluid,
+  output: float,
+  gutter-position: after,
+  grid-padding: 2em,
+  debug: (
+    image: hide,
+    color: rgba(#66f, .25),
+    output: background,
+    toggle: overlay,
+  ),
+);
+
+$wrapper-width: 1600px;
 
 /*********************
 IMPORTING PARTIALS
