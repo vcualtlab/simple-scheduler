@@ -93,11 +93,6 @@ function bones_register_required_plugins() {
             'required'  => false,
         ),
         array(
-            'name'      => 'Last Modified Footer',
-            'slug'      => 'last-modified-footer',
-            'required'  => false,
-        ),
-        array(
             'name'      => 'Debug Bar',
             'slug'      => 'debug-bar',
             'required'  => false,
