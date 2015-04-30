@@ -569,37 +569,6 @@ you hate oysters, then the world is your peanut butter & jelly sandwich.
 Site Name:
 Author:
 
-Stylesheet: Alert Styles
-
-If you want to use these alerts in your design, you can. If not,
-you can just remove this stylesheet.
-
-******************************************************************/
-.alert-help, .alert-info, .alert-error, .alert-success {
-  margin: 10px;
-  padding: 5px 18px;
-  border: 1px solid; }
-
-.alert-help {
-  border-color: #e8dc59;
-  background: #ebe16f; }
-
-.alert-info {
-  border-color: #bfe4f4;
-  background: #d5edf8; }
-
-.alert-error {
-  border-color: #f8cdce;
-  background: #fbe3e4; }
-
-.alert-success {
-  border-color: #deeaae;
-  background: #e6efc2; }
-
-/******************************************************************
-Site Name:
-Author:
-
 Stylesheet: Button Styles
 
 Buttons are a pretty important part of your site's style, so it's
@@ -625,19 +594,8 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
   position: relative;
   font-family: "Ubuntu", Helvetica, Arial, sans-serif;
   text-decoration: none;
-  color: #fff;
-  font-size: 0.9em;
-  font-size: 34px;
-  line-height: 34px;
-  font-weight: normal;
-  padding: 0 24px;
-  border-radius: 4px;
-  border: 0;
-  cursor: pointer;
-  -webkit-transition: background-color 0.14s ease-in-out;
-  transition: background-color 0.14s ease-in-out; }
+  cursor: pointer; }
   .blue-btn:hover, .blue-btn:focus {
-    color: #fff;
     text-decoration: none; }
   .blue-btn:active {
     top: 1px; }
