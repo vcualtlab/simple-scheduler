@@ -31,7 +31,7 @@ module.exports = function(grunt) {
                 files: ['library/css/**/*.css']
             },
             js: {
-                files: ['library/js/**/*.js','!library/js/main.js','!library/js/main.min.js'],
+                files: ['library/js/**/*.js','!library/js/dist/**/*.js'],
                 tasks: ['concat']
             },
             livereload: {
@@ -93,14 +93,14 @@ module.exports = function(grunt) {
                     'library/js/scripts.js',  // This specific file
                     '!library/js/libs/modernizr.custom.min.js'
                 ],
-                dest: 'library/js/main.js',
+                dest: 'library/js/dist/main.js',
             }
         },
  
         uglify: {
             footer: {
-                src: 'library/js/main.js',
-                dest: 'library/js/main.min.js'
+                src: 'library/js/dist/main.js',
+                dest: 'library/js/dist/main.min.js'
             }
         },
  
