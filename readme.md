@@ -22,6 +22,6 @@ grunt build
 ```
 
 ## Bones
-[](http://i.imgur.com/YuP1ruw.gifv)
+[!imgur](http://i.imgur.com/YuP1ruw.gifv)
 
 
