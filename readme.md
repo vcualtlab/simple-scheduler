@@ -22,6 +22,6 @@ grunt build
 ```
 
 ## Bones
-![dance](http://i.imgur.com/YuP1ruw.gifv)
+![dance](http://i.imgur.com/YuP1ruw.gif)
 
 
