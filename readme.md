@@ -13,12 +13,6 @@ bower install
 grunt init
 ```
 
-make a copy of library/dev-scripts.example.php at library/dev-scripts.php
-
-```bash
-cp library/dev-scripts.example.php library/dev-scripts.php
-```
-
 ```bash
 grunt dev
 ```
