@@ -282,10 +282,6 @@ function bones_fonts() {
 
 add_action('wp_enqueue_scripts', 'bones_fonts');
 
-// Enable support for HTML5 markup.
-	add_theme_support( 'html5', array(
-		'search-form',
-	) );
 
 /*
 we_are_live() is a function for testing our environment. 
