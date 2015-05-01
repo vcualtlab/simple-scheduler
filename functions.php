@@ -81,8 +81,8 @@ function bones_register_required_plugins() {
         // This is an example of how to include a plugin from a private repo in your theme.
         array(
             'name'               => 'Advanced Custom Fields Pro', // The plugin name.
-            'slug'               => 'acf-pro', // The plugin slug (typically the folder name).
-            'source'             => 'http://arts.vcu.edu/dev/acf-pro.zip', // The plugin source.
+            'slug'               => 'advanced-custom-fields-pro', // The plugin slug (typically the folder name).
+            'source'             => 'http://arts.vcu.edu/dev/advanced-custom-fields-pro.zip', // The plugin source.
             'required'           => false, // If false, the plugin is only 'recommended' instead of required.
         ),
 
