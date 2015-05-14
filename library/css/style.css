@@ -1451,7 +1451,7 @@ a.vcu-fallback {
 
 .no-svg a.vcu-fallback {
 	display: block;
-	background: url('../images/svg/fallbacks/logo-vcu-dk.png');
+	background: url("../images/svg/fallbacks/logo-vcu-dk.png");
 	width: 346px;
 	height: 17px;
 	max-width: 60px;
@@ -1462,7 +1462,7 @@ a.vcu-fallback {
 }
 
 .no-svg a.vcu-fallback:hover {
-	background: url('../images/svg/fallbacks/logo-vcu-color.png');
+	background: url("../images/svg/fallbacks/logo-vcu-color.png");
 }
 
 a.vcuarts-fallback {
@@ -1471,27 +1471,27 @@ a.vcuarts-fallback {
 
 .no-svg a.vcuarts-fallback {
 	display: block;
-	background: url('../images/svg/fallbacks/logo-vcuarts.png');
+	background: url("../images/svg/fallbacks/logo-vcuarts.png");
 	width: 84px;
 	height: 19px;
 	right: 2%;
 }
 
 .no-svg a.vcuarts-fallback:hover {
-	background: url('../images/svg/fallbacks/logo-vcuarts-color.png');
+	background: url("../images/svg/fallbacks/logo-vcuarts-color.png");
 }
 
 .vcu-color,
 .arts-color {
 	opacity: 0;
-	-webkit-transition: opacity .15s ease-in-out;
-	transition: opacity .15s ease-in-out;
+	-webkit-transition: opacity 0.15s ease-in-out;
+	transition: opacity 0.15s ease-in-out;
 }
 
 .vcu-dk,
 .arts-dk {
-	-webkit-transition: opacity .15s ease-in-out;
-	transition: opacity .15s ease-in-out;
+	-webkit-transition: opacity 0.15s ease-in-out;
+	transition: opacity 0.15s ease-in-out;
 }
 
 .vcu-name {
