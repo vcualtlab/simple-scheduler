@@ -6,31 +6,25 @@
 
 					<main class="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
-							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+						<?php if (have_posts()) : ?>
+							
+							<ul>
+						
+						<?php while (have_posts()) : the_post(); 
 
-							<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> role="article">
+						$comments_number = get_comments_number('0', '1', '1'); 
+						$available = ( $comments_number == '0' ? true : false );
 
-								<section class="entry-content">
-
-	<?php 
-	$comments_number = get_comments_number('0', '1', '1'); 
-	$available = ( $comments_number == '0' ? true : false );
-
-	if ($available){ ?>
-		<p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
-	<?php } else { ?>
-		<p><del><?php the_title(); ?></del></p>
-	<?php } ?>
+						if ($available){ ?>
+							<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> <small><?php edit_post_link('Edit');?></small></li>
+						<?php } else { ?>
+							<li><del><?php the_title(); ?></del> <small><?php edit_post_link('Edit');?></small></li>
+						<?php } 
 
 
-								</section>
+						endwhile; ?>
 
-								
-							</article>
-
-							<?php endwhile; ?>
-
-									<?php bones_page_navi(); ?>
+							</ul>
 
 							<?php else : ?>
 

@@ -3,11 +3,11 @@ LAYOUT & GRID STYLES
 *********************/
 
 .wrap {
-  @include container();
+  @include container( $wrapper-width );
 }
 
 .inner-content, .inner-footer, .inner-header {
-  @include container();
+  @include container( $wrapper-width );
   overflow: hidden;
 }
 
