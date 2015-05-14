@@ -46,4 +46,55 @@ if ( post_password_required() ) {
 
   <?php endif; ?>
 
-  <?php comment_form(); ?>
+<?php
+  $args = array(
+  'id_form'           => 'commentform',
+  'id_submit'         => 'submit',
+  'class_submit'      => 'submit',
+  'name_submit'       => 'submit',
+  'title_reply'       => __( 'First come first serve' ),
+  'title_reply_to'    => __( 'Leave a Reply to %s' ),
+  'cancel_reply_link' => __( 'Cancel Reply' ),
+  'label_submit'      => __( 'Post Comment' ),
+  'format'            => 'xhtml',
+  $fields =  array(
+	  'author' =>
+	    '<p class="comment-form-author"><label for="author">' . __( 'Name', 'domainreference' ) . '</label> ' .
+	    ( $req ? '<span class="required">*</span>' : '' ) .
+	    '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+	    '" size="30"' . $aria_req . ' /></p>',
+
+	  'email' =>
+	    '<p class="comment-form-email"><label for="email">' . __( 'Email', 'domainreference' ) . '</label> ' .
+	    ( $req ? '<span class="required">*</span>' : '' ) .
+	    '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+	    '" size="30"' . $aria_req . ' /></p>',
+	),
+
+  'comment_field' =>  '<p class="comment-form-comment"><label for="comment">' . _x( 'If you want it, come and claim it...', 'noun' ) .
+    '</label><textarea id="comment" name="comment" placeholder="" cols="45" rows="8" aria-required="true">' .
+    '</textarea></p>',
+
+  'must_log_in' => '<p class="must-log-in">' .
+    sprintf(
+      __( 'You must be <a href="%s">logged in</a> to post a comment.' ),
+      wp_login_url( apply_filters( 'the_permalink', get_permalink() ) )
+    ) . '</p>',
+
+  'logged_in_as' => '<p class="logged-in-as">' .
+    sprintf(
+    __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ),
+      admin_url( 'profile.php' ),
+      $user_identity,
+      wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) )
+    ) . '</p>',
+
+  'comment_notes_before' => '',
+
+  'comment_notes_after' => '',
+
+  'fields' => apply_filters( 'comment_form_default_fields', $fields ),
+);
+
+?>
+  <?php comment_form( $args ); ?>

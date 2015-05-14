@@ -963,7 +963,7 @@ select {
 IMPORTING CHUNKS
 I'm calling these chunks cause I don't the proper term if one even exists.
 Just breaking up the main file into smaller bits for easier digestion.
-Breakpoints are now just mixed right into everything with Breakpoint so no 
+Breakpoints are now just mixed right into everything with Breakpoint so no
 need to have all the breakpoint files.
 *********************/
 /*********************
@@ -1019,7 +1019,7 @@ style a page via class
 LAYOUT & GRID STYLES
 *********************/
 .wrap {
-  max-width: 1600px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto; }
   .wrap:after {
@@ -1028,7 +1028,7 @@ LAYOUT & GRID STYLES
     clear: both; }
 
 .inner-content, .inner-footer, .inner-header {
-  max-width: 1600px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden; }
@@ -1431,6 +1431,16 @@ FOOTER STYLES
   view.
   */
 /* end .footer-links */
+.comment-form .comment-form-author {
+  width: 48.275862069%;
+  float: left;
+  margin-right: 3.4482758621%; }
+
+.comment-form .comment-form-email {
+  width: 48.275862069%;
+  float: right;
+  margin-right: 0; }
+
 /*********************
 PRINT STYLESHEET
 Feel free to customize this. Remember to add things that won't make

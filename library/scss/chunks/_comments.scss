@@ -1,0 +1,11 @@
+.comment-form{
+
+	.comment-form-author{
+		@include span( first 6 );
+	}
+
+	.comment-form-email{
+		@include span( last 6 );
+	}
+
+}
