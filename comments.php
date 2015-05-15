@@ -14,7 +14,7 @@ if ( post_password_required() ) {
 
   <?php if ( have_comments() ) : ?>
 
-    <h3 id="comments-title" class="h2"><?php comments_number( __( '<span>No</span> Comments', 'bonestheme' ), __( '<span>One</span> Comment', 'bonestheme' ), __( '<span>%</span> Comments', 'bonestheme' ) );?></h3>
+<!--     <h3 id="comments-title" class="h2"><?php comments_number( __( '<span>No</span> Comments', 'bonestheme' ), __( '<span>One</span> Comment', 'bonestheme' ), __( '<span>%</span> Comments', 'bonestheme' ) );?></h3> -->
 
     <section class="commentlist">
       <?php
@@ -33,13 +33,6 @@ if ( post_password_required() ) {
       ?>
     </section>
 
-    <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-    	<nav class="navigation comment-navigation" role="navigation">
-      	<div class="comment-nav-prev"><?php previous_comments_link( __( '&larr; Previous Comments', 'bonestheme' ) ); ?></div>
-      	<div class="comment-nav-next"><?php next_comments_link( __( 'More Comments &rarr;', 'bonestheme' ) ); ?></div>
-    	</nav>
-    <?php endif; ?>
-
     <?php if ( ! comments_open() ) : ?>
     	<p class="no-comments"><?php _e( 'Comments are closed.' , 'bonestheme' ); ?></p>
     <?php endif; ?>
@@ -52,10 +45,10 @@ if ( post_password_required() ) {
   'id_submit'         => 'submit',
   'class_submit'      => 'submit',
   'name_submit'       => 'submit',
-  'title_reply'       => __( 'First come first serve' ),
+  'title_reply'       => __( '' ),
   'title_reply_to'    => __( 'Leave a Reply to %s' ),
   'cancel_reply_link' => __( 'Cancel Reply' ),
-  'label_submit'      => __( 'Post Comment' ),
+  'label_submit'      => __( 'Claim It' ),
   'format'            => 'xhtml',
   $fields =  array(
 	  'author' =>
@@ -71,9 +64,9 @@ if ( post_password_required() ) {
 	    '" size="30"' . $aria_req . ' /></p>',
 	),
 
-  'comment_field' =>  '<p class="comment-form-comment"><label for="comment">' . _x( 'If you want it, come and claim it...', 'noun' ) .
-    '</label><textarea id="comment" name="comment" placeholder="" cols="45" rows="8" aria-required="true">' .
-    '</textarea></p>',
+    'comment_field' =>  '<p class="comment-form-comment"><label for="comment">' . _x( '', 'noun' ) .
+    '</label><input type="hidden" value="I would like this one" id="comment" name="comment" placeholder="" cols="45" rows="8" aria-required="true">' .
+    '</input></p>',
 
   'must_log_in' => '<p class="must-log-in">' .
     sprintf(
@@ -97,4 +90,12 @@ if ( post_password_required() ) {
 );
 
 ?>
-  <?php comment_form( $args ); ?>
+
+
+<?php
+if (get_comments_number()==0) {
+    comment_form( $args );
+} else {
+
+}
+?>
