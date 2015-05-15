@@ -14,25 +14,29 @@ if ( post_password_required() ) {
 
   <?php if ( have_comments() ) : ?>
 
-    <h3 id="comments-title" class="h2"><?php comments_number( __( '<span>No</span> Comments', 'bonestheme' ), __( '<span>One</span> Comment', 'bonestheme' ), __( '<span>%</span> Comments', 'bonestheme' ) );?></h3>
+<?php
+$fromPost = 'post_id='.$post->ID;
+$claims = get_comments( $fromPost );
+$claims_count = 0;
 
-    <section class="commentlist">
-      <?php
-        wp_list_comments( array(
-          'style'             => 'div',
-          'short_ping'        => true,
-          'avatar_size'       => 40,
-          'callback'          => 'bones_comments',
-          'type'              => 'all',
-          'reply_text'        => __('Reply', 'bonestheme'),
-          'page'              => '',
-          'per_page'          => '',
-          'reverse_top_level' => null,
-          'reverse_children'  => '',
-          'walker' => new comment_walker()
-        ) );
-      ?>
-    </section>
+foreach ($claims as $claim) {
+	$author = $claim->comment_author;
+	$date = $claim->comment_date;
+	$claims_count++;
+
+	if ( $claims_count == 2 ){
+		echo "<h2>Waitlist</h2>";
+	}
+
+	if ( $claims_count == 1 ){
+		echo "<p>{$author} claimed this on {$date}.</p>";
+	} elseif ( $claims_count > 1 ) {
+		echo "<p>{$author} joined the waitlist on {$date}.</p>";
+	}
+}
+?>
+
+
 
     <?php if ( ! comments_open() ) : ?>
     	<p class="no-comments"><?php _e( 'Comments are closed.' , 'bonestheme' ); ?></p>
