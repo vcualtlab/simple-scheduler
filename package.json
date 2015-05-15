@@ -12,6 +12,7 @@
     "grunt-combine-media-queries": "latest",
     "grunt-concurrent": "latest",
     "grunt-contrib-concat": "latest",
+    "grunt-contrib-copy": "latest",
     "grunt-contrib-cssmin": "latest",
     "grunt-contrib-imagemin": "latest",
     "grunt-contrib-jshint": "latest",
