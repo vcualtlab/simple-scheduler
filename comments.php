@@ -14,7 +14,7 @@ if ( post_password_required() ) {
 
   <?php if ( have_comments() ) : ?>
 
-<!--     <h3 id="comments-title" class="h2"><?php comments_number( __( '<span>No</span> Comments', 'bonestheme' ), __( '<span>One</span> Comment', 'bonestheme' ), __( '<span>%</span> Comments', 'bonestheme' ) );?></h3> -->
+    <h3 id="comments-title" class="h2"><?php comments_number( __( '<span>No</span> Comments', 'bonestheme' ), __( '<span>One</span> Comment', 'bonestheme' ), __( '<span>%</span> Comments', 'bonestheme' ) );?></h3>
 
     <section class="commentlist">
       <?php
@@ -28,7 +28,8 @@ if ( post_password_required() ) {
           'page'              => '',
           'per_page'          => '',
           'reverse_top_level' => null,
-          'reverse_children'  => ''
+          'reverse_children'  => '',
+          'walker' => new comment_walker()
         ) );
       ?>
     </section>
@@ -93,7 +94,7 @@ if ( post_password_required() ) {
 
 
 <?php
-if (get_comments_number()==0) {
+if ( get_comments_number()==0 ) {
     comment_form( $args );
 } else {
 
