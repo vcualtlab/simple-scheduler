@@ -94,6 +94,21 @@ function bones_remove_wp_ver_css_js( $src ) {
 	return $src;
 }
 
+
+// remove injected CSS for recent comments widget
+function bones_remove_wp_widget_recent_comments_style() {
+	if ( has_filter( 'wp_head', 'wp_widget_recent_comments_style' ) ) {
+		remove_filter( 'wp_head', 'wp_widget_recent_comments_style' );
+	}
+}
+// remove injected CSS from recent comments widget
+function bones_remove_recent_comments_style() {
+	global $wp_widget_factory;
+	if (isset($wp_widget_factory->widgets['WP_Widget_Recent_Comments'])) {
+		remove_action( 'wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style') );
+	}
+}
+
 // remove injected CSS from gallery
 function bones_gallery_style($css) {
 	return preg_replace( "!<style type='text/css'>(.*?)</style>!s", '', $css );
@@ -132,10 +147,10 @@ function bones_scripts_and_styles() {
 
 		// enqueue styles and scripts
 		wp_enqueue_script( 'bones-modernizr' );
-		
+
     // check environment before outputting appropriate stylesheet
     if ( we_are_live() ){
-      wp_enqueue_style( 'bones-stylesheet-min' );  
+      wp_enqueue_style( 'bones-stylesheet-min' );
     } else {
       wp_enqueue_style( 'bones-stylesheet' );
     }
@@ -152,7 +167,7 @@ function bones_scripts_and_styles() {
 		wp_enqueue_script( 'jquery' );
     // check environment before outputting appropriate script
 		if ( we_are_live() ){
-      wp_enqueue_script( 'bones-js-min' );  
+      wp_enqueue_script( 'bones-js-min' );
     } else {
       wp_enqueue_script( 'bones-js' );
     }
