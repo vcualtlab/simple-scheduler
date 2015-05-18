@@ -976,19 +976,6 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased; }
 
-del a:link,
-del a:visited,
-del a:active {
-  color: #9fa6b4; }
-  del a:link:hover,
-  del a:visited:hover,
-  del a:active:hover {
-    color: #858ea0; }
-
-.editthis {
-  position: relative;
-  left: -10px; }
-
 body .inner-content,
 body .main {
   overflow: visible; }
@@ -1119,10 +1106,17 @@ h5, .h5 {
 /*********************
 HEADER STYLES
 *********************/
+.header {
+  background: #323944; }
+
 #logo {
-  margin: 0.75em 0; }
+  margin: 0.75em 0;
+  font-size: 2em;
+  text-align: center; }
   #logo a {
-    color: #323944; }
+    color: #fff; }
+    #logo a:hover {
+      color: #e8e8e8; }
 
 /*********************
 NAVIGATION STYLES
@@ -1247,6 +1241,50 @@ POSTS & CONTENT STYLES
 *********************/
 .content {
   margin-top: 1.5em; }
+
+.slots.taken {
+  padding: 0 1em; }
+  .slots.taken .slot {
+    background: #9fa6b4; }
+    .slots.taken .slot:hover {
+      background-color: #9fa6b4;
+      color: #fff; }
+
+.slots .waitlist {
+  margin: 2em 0; }
+
+.slots .slot {
+  padding: 1em 1.5em;
+  background: #323944;
+  margin-bottom: 1px;
+  display: block;
+  color: #fff;
+  font-size: 1.25em;
+  text-decoration: none;
+  transition: all ease 0.3s; }
+  .slots .slot:hover {
+    background: #1f232a;
+    color: #e8e8e8; }
+  .slots .slot.single:hover {
+    background: #323944;
+    color: #fff; }
+  .slots .slot.unavailable {
+    background: #454f5e;
+    color: #9fa6b4; }
+    .slots .slot.unavailable:hover {
+      color: #9fa6b4; }
+  .slots .slot span {
+    display: inline-block;
+    float: right;
+    color: #fff; }
+  .slots .slot del a:link,
+  .slots .slot del a:visited,
+  .slots .slot del a:active {
+    color: #9fa6b4; }
+
+.editthis {
+  position: relative;
+  left: -10px; }
 
 .hentry {
   background-color: #fff;
@@ -1450,15 +1488,25 @@ FOOTER STYLES
   view.
   */
 /* end .footer-links */
-.comment-form .comment-form-author {
-  width: 48.275862069%;
-  float: left;
-  margin-right: 3.4482758621%; }
-
-.comment-form .comment-form-email {
-  width: 48.275862069%;
-  float: right;
-  margin-right: 0; }
+.comment-form {
+  background: #9fa6b4;
+  margin-top: 3em;
+  padding: 1em 1.5em; }
+  .comment-form .submit {
+    background: white;
+    border: none;
+    text-transform: uppercase;
+    display: block;
+    margin: 0 auto;
+    padding: 1em 1.5em; }
+  .comment-form .comment-form-author {
+    width: 48.275862069%;
+    float: left;
+    margin-right: 3.4482758621%; }
+  .comment-form .comment-form-email {
+    width: 48.275862069%;
+    float: right;
+    margin-right: 0; }
 
 /*********************
 PRINT STYLESHEET

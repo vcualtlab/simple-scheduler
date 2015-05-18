@@ -6,45 +6,24 @@
 
 					<main class="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
-					<h2>Claim your spot:</h2>
-
 						<?php if (have_posts()) : ?>
 
-							<ul>
+							<div class="slots">
 
 						<?php while (have_posts()) : the_post();
 
-						if ( function_exists('get_field') ){
-							$global_max_quota = get_field('max_quota', 'option');
-							$specific_max_quota = get_field('max_quota');
-
-							if ( $specific_max_quota ){
-								$max_quota = $specific_max_quota;
-							} elseif ( $global_max_quota ){
-								$max_quota = $global_max_quota;
-							} else {
-								$max_quota = 1;
-							}
-
-						} else {
-							$max_quota = 1;
-						}
 
 
-
-						$comments_number = get_comments_number();
-						$available = ( $comments_number < $max_quota ? true : false );
-
-						if ($available){ ?>
-							<li><small class="editthis"><?php edit_post_link('<i class="fa fa-pencil"></i>');?></small><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+						if ( is_available() ){ ?>
+							<a class="slot" href="<?php the_permalink(); ?>"><?php the_title(); ?><span><?php echo get_availability(); ?></span></a>
 						<?php } else { ?>
-							<li><small class="editthis"><?php edit_post_link('<i class="fa fa-pencil"></i>');?></small><del><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></del></li>
+							<a class="slot unavailable" href="<?php the_permalink(); ?>"><del><?php the_title(); ?></del><span><?php echo get_availability(); ?></span></a>
 						<?php }
 
 
 						endwhile; ?>
 
-							</ul>
+							</div>
 
 							<?php else : ?>
 

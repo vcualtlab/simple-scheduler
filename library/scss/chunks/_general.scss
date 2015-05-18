@@ -10,21 +10,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-del a:link,
-del a:visited,
-del a:active{
-	color: $meta-gray;
-
-	&:hover{
-		color: darken($meta-gray, 9);
-	}
-
-}
-
-.editthis{
-	position: relative;
-	left: -10px;
-}
 
 body .inner-content,
 body .main{

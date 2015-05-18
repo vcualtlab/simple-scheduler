@@ -358,12 +358,70 @@ function get_development_scripts(){
 
 
 
-
+// CUSTOMIZE DUPLICATE MESSAGE
 add_action( 'comment_duplicate_trigger', 'my_duplicate_comment_message' );
 
 function my_duplicate_comment_message(){
 	wp_die( __( 'You\'re already signed up for this one. | <a href="'.home_url().'">Back to full listing</a>' ), 409 );
 }
+
+
+
+function get_availability() {
+
+	if ( function_exists('get_field') ){
+		$global_max_quota = get_field('max_quota', 'option');
+		$specific_max_quota = get_field('max_quota');
+
+		if ( $specific_max_quota ){
+			$max_quota = $specific_max_quota;
+		} elseif ( $global_max_quota ){
+			$max_quota = $global_max_quota;
+		} else {
+			$max_quota = 1;
+		}
+
+	} else {
+		$max_quota = 1;
+	}
+
+	$comments_number = get_comments_number();
+	$available_spots = $max_quota - $comments_number;
+
+	if ( $available_spots <= 0 ){
+		$message = "0 of ".$max_quota;
+	} else {
+		$message = $available_spots." of ".$max_quota;
+	}
+
+	return $message;
+
+}
+
+function is_available() {
+	if ( function_exists('get_field') ){
+		$global_max_quota = get_field('max_quota', 'option');
+		$specific_max_quota = get_field('max_quota');
+
+		if ( $specific_max_quota ){
+			$max_quota = $specific_max_quota;
+		} elseif ( $global_max_quota ){
+			$max_quota = $global_max_quota;
+		} else {
+			$max_quota = 1;
+		}
+
+	} else {
+		$max_quota = 1;
+	}
+
+	$comments_number = get_comments_number();
+	$available = ( $comments_number < $max_quota ? true : false );
+
+	return $available;
+}
+
+
 
 
 

@@ -8,6 +8,77 @@ POSTS & CONTENT STYLES
   margin-top: 1.5em;
 }
 
+.slots{
+	&.taken{
+		padding: 0 1em;
+
+		.slot{
+			background: $meta-gray;
+			&:hover{
+				background-color: $meta-gray;
+				color: $white;
+			}
+		}
+	}
+
+	.waitlist{
+		margin: 2em 0;
+	}
+
+	.slot{
+		padding: 1em 1.5em;
+		background: $black;
+		margin-bottom: 1px;
+		display: block;
+		color: $white;
+		font-size: 1.25em;
+		text-decoration: none;
+		transition: all ease .3s;
+
+		&:hover{
+			background: darken($black, 9);
+			color: darken($white, 9);
+		}
+
+		&.single:hover{
+			background: $black;
+			color: $white;
+		}
+
+		&.unavailable{
+			background: lighten($black, 9);
+			color: $meta-gray;
+
+			&:hover{
+				color: $meta-gray;
+			}
+		}
+
+		span{
+			display: inline-block;
+			float: right;
+			color: $white;
+		}
+
+		del a:link,
+		del a:visited,
+		del a:active{
+			color: $meta-gray;
+		}
+	}
+}
+
+
+
+
+
+.editthis{
+	position: relative;
+	left: -10px;
+}
+
+
+
     .hentry {
       background-color: $white;
       overflow: hidden;

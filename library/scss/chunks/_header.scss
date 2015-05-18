@@ -3,12 +3,19 @@ HEADER STYLES
 *********************/
 
 .header {
+	background: $black;
 }
 
   #logo {
     margin: 0.75em 0;
+    font-size: 2em;
+    text-align: center;
 
     a {
-      color: $black;
+      color: $white;
+
+      &:hover{
+      	color: darken( $white, 9 );
+      }
     }
   }

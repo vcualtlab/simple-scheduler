@@ -1,5 +1,19 @@
 .comment-form{
 
+	background: $meta-gray;
+	margin-top: 3em;
+	padding: 1em 1.5em;
+
+
+	.submit{
+		background: white;
+		border: none;
+		text-transform: uppercase;
+		display: block;
+		margin: 0 auto;
+		padding: 1em 1.5em;
+	}
+
 	.comment-form-author{
 		@include span( first 6 );
 	}

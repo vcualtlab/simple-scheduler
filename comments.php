@@ -16,6 +16,8 @@ if ( post_password_required() ) {
 
 	$fromPost = 'post_id='.$post->ID;
 	$claims = get_comments( $fromPost );
+
+	print_r($claims);
 	$claims = array_reverse($claims);
 	$claims_count = 0;
 
@@ -30,30 +32,31 @@ if ( post_password_required() ) {
 		} else {
 			$max_quota = 1;
 		}
-
 	} else {
 		$max_quota = 1;
 	}
+	echo "<div class='slots taken'>";
+		foreach ($claims as $claim) {
+			$author = $claim->comment_author;
+			$date = $claim->comment_date;
+			$claims_count++;
 
+			if ( $claims_count == $max_quota+1 ){
+				echo "</div>
+						<div class='slots'>
+							<div class='slot single waitlist'>
+								Waitlist
+							</div>
+						</div>
+					<div class='slots taken'>";
+			}
 
-
-	foreach ($claims as $claim) {
-		$author = $claim->comment_author;
-		$date = $claim->comment_date;
-		$claims_count++;
-
-		if ( $claims_count == $max_quota+1 ){
-			echo "<h2>Waitlist</h2>";
+			?>
+			<div class="slot" href="<?php the_permalink(); ?>"><?php echo $author ?><span></span></div>
+			<?php
 		}
-
-		if ( $claims_count <= $max_quota ){
-			echo "<p>{$author} claimed this on {$date}.</p>";
-		} elseif ( $claims_count > 1 ) {
-			echo "<p>{$author} joined the waitlist on {$date}.</p>";
-		}
-	}
+	echo "</div>";
 ?>
-
 
 
     <?php if ( ! comments_open() ) : ?>
