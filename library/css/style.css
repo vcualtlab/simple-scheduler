@@ -959,6 +959,10 @@ select {
   background-repeat: no-repeat;
   background-position: 97.5% center; }
 
+label,
+.required {
+  color: #fff; }
+
 /*********************
 IMPORTING CHUNKS
 I'm calling these chunks cause I don't the proper term if one even exists.
@@ -1253,7 +1257,7 @@ POSTS & CONTENT STYLES
 .slots .waitlist {
   margin: 2em 0; }
 
-.slots .slot {
+.slot {
   padding: 1em 1.5em;
   background: #323944;
   margin-bottom: 1px;
@@ -1262,25 +1266,30 @@ POSTS & CONTENT STYLES
   font-size: 1.25em;
   text-decoration: none;
   transition: all ease 0.3s; }
-  .slots .slot:hover {
+  .slot:hover {
     background: #1f232a;
     color: #e8e8e8; }
-  .slots .slot.single:hover {
+  .slot.single:hover {
     background: #323944;
     color: #fff; }
-  .slots .slot.unavailable {
+  .slot.unavailable {
     background: #454f5e;
     color: #9fa6b4; }
-    .slots .slot.unavailable:hover {
+    .slot.unavailable:hover {
       color: #9fa6b4; }
-  .slots .slot span {
+  .slot span {
     display: inline-block;
     float: right;
     color: #fff; }
-  .slots .slot del a:link,
-  .slots .slot del a:visited,
-  .slots .slot del a:active {
+  .slot del a:link,
+  .slot del a:visited,
+  .slot del a:active {
     color: #9fa6b4; }
+
+.logged-in-as {
+  background-color: #eaedf2;
+  text-align: center;
+  padding: 1em 1.5em; }
 
 .editthis {
   position: relative;

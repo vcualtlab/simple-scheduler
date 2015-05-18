@@ -17,7 +17,7 @@
 
 			                <?php comments_template(); ?>
 
-			                <a href="<?php echo get_site_url(); ?>">Back to full list.</a>
+			                <a class="slot" href="<?php echo get_site_url(); ?>">Back to full list.</a>
 			              </article> <?php // end article ?>
 
 

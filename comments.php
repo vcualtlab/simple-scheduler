@@ -15,11 +15,11 @@ if ( post_password_required() ) {
   <?php if ( have_comments() ) :
 
 	$fromPost = 'post_id='.$post->ID;
-	$claims = get_comments( $fromPost );
+	$comments = get_comments( $fromPost );
 
-	print_r($claims);
-	$claims = array_reverse($claims);
-	$claims_count = 0;
+	// print_r($comments);
+	$comments = array_reverse($comments);
+	$comments_count = 0;
 
 	if ( function_exists('get_field') ){
 		$global_max_quota = get_field('max_quota', 'option');
@@ -35,13 +35,18 @@ if ( post_password_required() ) {
 	} else {
 		$max_quota = 1;
 	}
-	echo "<div class='slots taken'>";
-		foreach ($claims as $claim) {
-			$author = $claim->comment_author;
-			$date = $claim->comment_date;
-			$claims_count++;
 
-			if ( $claims_count == $max_quota+1 ){
+	$site_url = get_site_url();
+	$edit_comment_url = $site_url."/wp-admin/comment.php?action=editcomment&c=";
+
+	echo "<div class='slots taken'>";
+		foreach ($comments as $comment) {
+			$author = $comment->comment_author;
+			$date = $comment->comment_date;
+			$comment_ID = $comment->comment_ID;
+			$comments_count++;
+
+			if ( $comments_count == $max_quota+1 ){
 				echo "</div>
 						<div class='slots'>
 							<div class='slot single waitlist'>
@@ -52,7 +57,17 @@ if ( post_password_required() ) {
 			}
 
 			?>
-			<div class="slot" href="<?php the_permalink(); ?>"><?php echo $author ?><span></span></div>
+			<div class="slot" href="<?php the_permalink(); ?>"><?php echo $author ?>
+				<?php
+					if (current_user_can( 'manage_options' )) { ?>
+				        <span>
+				        	<a href="<?php echo $edit_comment_url.$comment_ID; ?>">
+				        		<i class="fa fa-pencil"></i>
+				        	</a>
+				        </span>
+				   <?php }
+				?>
+			</div>
 			<?php
 		}
 	echo "</div>";
