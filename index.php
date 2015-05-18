@@ -6,6 +6,8 @@
 
 					<main class="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
+					<h2>Claim your spot:</h2>
+
 						<?php if (have_posts()) : ?>
 
 							<ul>
@@ -16,9 +18,9 @@
 						$available = ( $comments_number == '0' ? true : false );
 
 						if ($available){ ?>
-							<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> <small><?php edit_post_link('<i class="fa fa-pencil"></i>');?></small></li>
+							<li><small class="editthis"><?php edit_post_link('<i class="fa fa-pencil"></i>');?></small><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
 						<?php } else { ?>
-							<li><del><?php the_title(); ?></del> <small><?php edit_post_link('<i class="fa fa-pencil"></i>');?></small></li>
+							<li><small class="editthis"><?php edit_post_link('<i class="fa fa-pencil"></i>');?></small><del><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></del></li>
 						<?php }
 
 

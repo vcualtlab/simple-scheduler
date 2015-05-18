@@ -17,6 +17,7 @@ if ( post_password_required() ) {
 <?php
 $fromPost = 'post_id='.$post->ID;
 $claims = get_comments( $fromPost );
+$claims = array_reverse($claims);
 $claims_count = 0;
 
 foreach ($claims as $claim) {
@@ -60,13 +61,13 @@ foreach ($claims as $claim) {
 	    '<p class="comment-form-author"><label for="author">' . __( 'Name', 'domainreference' ) . '</label> ' .
 	    ( $req ? '<span class="required">*</span>' : '' ) .
 	    '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
-	    '" size="30"' . $aria_req . ' /></p>',
+	    '" size="30" /></p>',
 
 	  'email' =>
 	    '<p class="comment-form-email"><label for="email">' . __( 'Email', 'domainreference' ) . '</label> ' .
 	    ( $req ? '<span class="required">*</span>' : '' ) .
 	    '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
-	    '" size="30"' . $aria_req . ' /></p>',
+	    '" size="30" /></p>',
 	),
 
     'comment_field' =>  '<p class="comment-form-comment"><label for="comment">' . _x( '', 'noun' ) .
@@ -98,9 +99,9 @@ foreach ($claims as $claim) {
 
 
 <?php
-if ( get_comments_number()==0 ) {
+// if ( get_comments_number()==0 ) {
     comment_form( $args );
-} else {
+// } else {
 
-}
+// }
 ?>

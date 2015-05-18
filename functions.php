@@ -356,4 +356,16 @@ function get_development_scripts(){
 		'comment-form'
 	) );
 
+
+
+
+add_action( 'comment_duplicate_trigger', 'my_duplicate_comment_message' );
+
+function my_duplicate_comment_message(){
+	wp_die( __( 'You\'re already signed up for this one!' ), 409 );
+}
+
+
+
+
 /* DON'T DELETE THIS CLOSING TAG */ ?>

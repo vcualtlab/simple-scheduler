@@ -8,25 +8,26 @@
 
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-              <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+			              <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
 
-                <header class="article-header entry-header">
+			                <header class="article-header entry-header">
 
-                  <h1 class="entry-title single-title" itemprop="headline" rel="bookmark"><?php the_title(); ?></h1>
+			                  <h1 class="entry-title single-title" itemprop="headline" rel="bookmark"><?php the_title(); ?></h1>
 
-                </header> <?php // end article header ?>
+			                </header> <?php // end article header ?>
 
-                <section class="entry-content cf" itemprop="articleBody">
-                  <?php
-                    // the content (pretty self explanatory huh)
-                    the_content();
+			                <section class="entry-content cf" itemprop="articleBody">
+			                  <?php
+			                    // the content (pretty self explanatory huh)
+			                    the_content();
 
-                  ?>
-                </section> <?php // end article section ?>
+			                  ?>
+			                </section> <?php // end article section ?>
 
-                <?php comments_template(); ?>
+			                <?php comments_template(); ?>
 
-              </article> <?php // end article ?>
+			                <a href="<?php echo get_site_url(); ?>">Back to full list.</a>
+			              </article> <?php // end article ?>
 
 
 						<?php endwhile; ?>
