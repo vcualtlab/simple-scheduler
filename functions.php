@@ -70,7 +70,7 @@ add_action( 'after_setup_theme', 'bones_ahoy' );
 TGMPA Plugin Activation
 *********************/
 
-add_action( 'tgmpa_register', 'bones_register_required_plugins' );
+// add_action( 'tgmpa_register', 'bones_register_required_plugins' );
 /**
  * Register the required plugins for this theme.
  */
