@@ -17,15 +17,20 @@
 						if ( function_exists('get_field') ){
 							$global_max_quota = get_field('max_quota', 'option');
 							$specific_max_quota = get_field('max_quota');
-						}
 
-						if ( $specific_max_quota ){
-							$max_quota = $specific_max_quota;
-						} elseif ( $global_max_quota ){
-							$max_quota = $global_max_quota;
+							if ( $specific_max_quota ){
+								$max_quota = $specific_max_quota;
+							} elseif ( $global_max_quota ){
+								$max_quota = $global_max_quota;
+							} else {
+								$max_quota = 1;
+							}
+
 						} else {
 							$max_quota = 1;
 						}
+
+
 
 						$comments_number = get_comments_number();
 						$available = ( $comments_number < $max_quota ? true : false );

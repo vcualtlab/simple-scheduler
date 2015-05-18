@@ -365,9 +365,107 @@ function my_duplicate_comment_message(){
 	wp_die( __( 'You\'re already signed up for this one. | <a href="'.home_url().'">Back to full listing</a>' ), 409 );
 }
 
+
+
+// ACF FIELDS STUFF
+
 if ( function_exists('acf_add_options_page') ){
 	acf_add_options_page();
 }
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array (
+	'key' => 'group_555a2eb676625',
+	'title' => 'Post Options',
+	'fields' => array (
+		array (
+			'key' => 'field_555a2ee80a6fc',
+			'label' => 'Max Quota',
+			'name' => 'max_quota',
+			'type' => 'number',
+			'instructions' => 'Limit group size for this specific slot.',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'min' => '',
+			'max' => '',
+			'step' => '',
+			'readonly' => 0,
+			'disabled' => 0,
+		),
+	),
+	'location' => array (
+		array (
+			array (
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+));
+
+acf_add_local_field_group(array (
+	'key' => 'group_555a1fedd2d11',
+	'title' => 'Theme Options',
+	'fields' => array (
+		array (
+			'key' => 'field_555a1ff8df445',
+			'label' => 'Max Quota',
+			'name' => 'max_quota',
+			'type' => 'number',
+			'instructions' => 'This option limits the group size for each available slot.',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'min' => '',
+			'max' => '',
+			'step' => '',
+			'readonly' => 0,
+			'disabled' => 0,
+		),
+	),
+	'location' => array (
+		array (
+			array (
+				'param' => 'options_page',
+				'operator' => '==',
+				'value' => 'acf-options',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+));
+
+endif;
 
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>
