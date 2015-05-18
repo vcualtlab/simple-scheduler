@@ -12,47 +12,46 @@ if ( post_password_required() ) {
 
 <?php // You can start editing here. ?>
 
-  <?php if ( have_comments() ) : ?>
+  <?php if ( have_comments() ) :
 
-<?php
-$fromPost = 'post_id='.$post->ID;
-$claims = get_comments( $fromPost );
-$claims = array_reverse($claims);
-$claims_count = 0;
+	$fromPost = 'post_id='.$post->ID;
+	$claims = get_comments( $fromPost );
+	$claims = array_reverse($claims);
+	$claims_count = 0;
 
-if ( function_exists('get_field') ){
-	$global_max_quota = get_field('max_quota', 'option');
-	$specific_max_quota = get_field('max_quota');
+	if ( function_exists('get_field') ){
+		$global_max_quota = get_field('max_quota', 'option');
+		$specific_max_quota = get_field('max_quota');
 
-	if ( $specific_max_quota ){
-		$max_quota = $specific_max_quota;
-	} elseif ( $global_max_quota ){
-		$max_quota = $global_max_quota;
+		if ( $specific_max_quota ){
+			$max_quota = $specific_max_quota;
+		} elseif ( $global_max_quota ){
+			$max_quota = $global_max_quota;
+		} else {
+			$max_quota = 1;
+		}
+
 	} else {
 		$max_quota = 1;
 	}
 
-} else {
-	$max_quota = 1;
-}
 
 
+	foreach ($claims as $claim) {
+		$author = $claim->comment_author;
+		$date = $claim->comment_date;
+		$claims_count++;
 
-foreach ($claims as $claim) {
-	$author = $claim->comment_author;
-	$date = $claim->comment_date;
-	$claims_count++;
+		if ( $claims_count == $max_quota+1 ){
+			echo "<h2>Waitlist</h2>";
+		}
 
-	if ( $claims_count == $max_quota+1 ){
-		echo "<h2>Waitlist</h2>";
+		if ( $claims_count <= $max_quota ){
+			echo "<p>{$author} claimed this on {$date}.</p>";
+		} elseif ( $claims_count > 1 ) {
+			echo "<p>{$author} joined the waitlist on {$date}.</p>";
+		}
 	}
-
-	if ( $claims_count <= $max_quota ){
-		echo "<p>{$author} claimed this on {$date}.</p>";
-	} elseif ( $claims_count > 1 ) {
-		echo "<p>{$author} joined the waitlist on {$date}.</p>";
-	}
-}
 ?>
 
 

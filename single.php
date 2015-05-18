@@ -13,7 +13,34 @@
 			                <header class="article-header entry-header">
 
 			                  <h1 class="entry-title single-title" itemprop="headline" rel="bookmark"><?php the_title(); ?></h1>
+								<?php
+									if ( function_exists('get_field') ){
+										$global_max_quota = get_field('max_quota', 'option');
+										$specific_max_quota = get_field('max_quota');
 
+										if ( $specific_max_quota ){
+											$max_quota = $specific_max_quota;
+										} elseif ( $global_max_quota ){
+											$max_quota = $global_max_quota;
+										} else {
+											$max_quota = 1;
+										}
+
+									} else {
+										$max_quota = 1;
+									}
+
+									$comments_number = get_comments_number();
+									$available_spots = $max_quota - $comments_number;
+
+									if ( $available_spots <= 0 ){
+										$message = "0 of ".$max_quota." available";
+									} else {
+										$message = $available_spots." of ".$max_quota." available";
+									}
+								?>
+
+			                  <p><?php echo $message;?></p>
 			                </header> <?php // end article header ?>
 
 			                <section class="entry-content cf" itemprop="articleBody">
