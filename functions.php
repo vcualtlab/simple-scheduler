@@ -362,10 +362,12 @@ function get_development_scripts(){
 add_action( 'comment_duplicate_trigger', 'my_duplicate_comment_message' );
 
 function my_duplicate_comment_message(){
-	wp_die( __( 'You\'re already signed up for this one!' ), 409 );
+	wp_die( __( 'You\'re already signed up for this one. | <a href="'.home_url().'">Back to full listing</a>' ), 409 );
 }
 
-
+if ( function_exists('acf_add_options_page') ){
+	acf_add_options_page();
+}
 
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

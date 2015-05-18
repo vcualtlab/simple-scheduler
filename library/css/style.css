@@ -977,10 +977,12 @@ body {
   -webkit-font-smoothing: antialiased; }
 
 del a:link,
-del a:visited {
+del a:visited,
+del a:active {
   color: #9fa6b4; }
   del a:link:hover,
-  del a:visited:hover {
+  del a:visited:hover,
+  del a:active:hover {
     color: #858ea0; }
 
 .editthis {

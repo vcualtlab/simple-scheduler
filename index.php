@@ -14,8 +14,21 @@
 
 						<?php while (have_posts()) : the_post();
 
-						$comments_number = get_comments_number('0', '1', '1');
-						$available = ( $comments_number == '0' ? true : false );
+						if ( function_exists('get_field') ){
+							$global_max_quota = get_field('max_quota', 'option');
+							$specific_max_quota = get_field('max_quota');
+						}
+
+						if ( $specific_max_quota ){
+							$max_quota = $specific_max_quota;
+						} elseif ( $global_max_quota ){
+							$max_quota = $global_max_quota;
+						} else {
+							$max_quota = 1;
+						}
+
+						$comments_number = get_comments_number();
+						$available = ( $comments_number < $max_quota ? true : false );
 
 						if ($available){ ?>
 							<li><small class="editthis"><?php edit_post_link('<i class="fa fa-pencil"></i>');?></small><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>

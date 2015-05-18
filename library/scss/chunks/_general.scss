@@ -11,8 +11,10 @@ body {
 }
 
 del a:link,
-del a:visited{
+del a:visited,
+del a:active{
 	color: $meta-gray;
+
 	&:hover{
 		color: darken($meta-gray, 9);
 	}
