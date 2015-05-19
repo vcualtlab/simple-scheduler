@@ -8,27 +8,29 @@
 
 						<?php if (have_posts()) : ?>
 
-							<div class="slots">
+							<div id="searchable" class="slots">
 
-						<?php while (have_posts()) : the_post();
+							<input type="text" class="fuzzy-search" placeholder="search..."/>
 
+								<ul class="list">
+									<?php while (have_posts()) : the_post();
 
+									if ( is_available() ){ ?>
+										<li><a class="slot clearfix" href="<?php the_permalink(); ?>">
+											<span class="slot-title"><?php the_title(); ?></span>
+											<span class="slot-availability"><?php echo get_availability(); ?> available</span>
+										</a></li>
 
-						if ( is_available() ){ ?>
-							<a class="slot clearfix" href="<?php the_permalink(); ?>">
-								<span class="slot-title"><?php the_title(); ?></span>
-								<span class="slot-availability"><?php echo get_availability(); ?> available</span>
-							</a>
+									<?php } else { ?>
+										<li><a class="slot unavailable clearfix" href="<?php the_permalink(); ?>">
+											<span class="slot-title"><del><?php the_title(); ?></del></span>
+											<span class="slot-availability"><?php echo get_availability(); ?> available</span>
+										</a></li>
+									<?php }
 
-						<?php } else { ?>
-							<a class="slot unavailable clearfix" href="<?php the_permalink(); ?>">
-								<span class="slot-title"><?php the_title(); ?></span>
-								<span class="slot-availability"><?php echo get_availability(); ?> available</span>
-							</a>
-						<?php }
+									endwhile; ?>
+								</ul>
 
-
-						endwhile; ?>
 
 							</div>
 

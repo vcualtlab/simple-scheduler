@@ -423,6 +423,18 @@ function is_available() {
 
 
 
+function set_home_posts_per_page( $query ) {
+    if ( is_admin() || ! $query->is_main_query() )
+        return;
+
+    if ( is_home() ) {
+        // Display only 1 post for the original blog archive
+        $query->set( 'posts_per_page', -1 );
+        return;
+    }
+}
+add_action( 'pre_get_posts', 'set_home_posts_per_page', 1 );
+
 
 
 // ACF FIELDS STUFF
