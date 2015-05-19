@@ -430,6 +430,8 @@ function set_home_posts_per_page( $query ) {
     if ( is_home() ) {
         // Display only 1 post for the original blog archive
         $query->set( 'posts_per_page', -1 );
+        $query->set( 'orderby', 'title' );
+        $query->set( 'order', 'ASC' );
         return;
     }
 }
