@@ -12,7 +12,10 @@
 			              <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
 
 			               	<div class="slots">
-								<div class="slot single" href="<?php the_permalink(); ?>"><?php the_title(); ?><span><?php echo get_availability(); ?> available</span></div>
+								<div class="slot single clearfix" href="<?php the_permalink(); ?>">
+									<span class="slot-title"><?php the_title(); ?></span>
+									<span class="slot-availability"><?php echo get_availability(); ?> available</span>
+								</div>
 							</div>
 
 			                <?php comments_template(); ?>

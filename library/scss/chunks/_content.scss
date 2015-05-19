@@ -56,9 +56,19 @@ POSTS & CONTENT STYLES
 		}
 	}
 
-	span{
-		display: inline-block;
-		float: right;
+	.slot-title{
+		@include breakpoint(600px){
+			@include span(first 6 of 12);
+		}
+		@include span(12);
+		color: $white;
+	}
+	.slot-availability{
+		@include breakpoint(600px){
+			@include span(last 6 of 12);
+			text-align: right;
+		}
+		@include span(12);
 		color: $white;
 	}
 

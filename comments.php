@@ -89,7 +89,7 @@ if ( post_password_required() ) {
   'title_reply'       => __( '' ),
   'title_reply_to'    => __( 'Leave a Reply to %s' ),
   'cancel_reply_link' => __( 'Cancel Reply' ),
-  'label_submit'      => __( 'Claim It' ),
+  'label_submit'      => __( 'Sign Up' ),
   'format'            => 'xhtml',
   $fields =  array(
 	  'author' =>

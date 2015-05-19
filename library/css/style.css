@@ -1277,10 +1277,29 @@ POSTS & CONTENT STYLES
     color: #9fa6b4; }
     .slot.unavailable:hover {
       color: #9fa6b4; }
-  .slot span {
-    display: inline-block;
-    float: right;
+  .slot .slot-title {
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
     color: #fff; }
+    @media (min-width: 600px) {
+      .slot .slot-title {
+        width: 48.275862069%;
+        float: left;
+        margin-right: 3.4482758621%; } }
+  .slot .slot-availability {
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
+    color: #fff; }
+    @media (min-width: 600px) {
+      .slot .slot-availability {
+        width: 48.275862069%;
+        float: right;
+        margin-right: 0;
+        text-align: right; } }
   .slot del a:link,
   .slot del a:visited,
   .slot del a:active {

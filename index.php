@@ -15,9 +15,16 @@
 
 
 						if ( is_available() ){ ?>
-							<a class="slot" href="<?php the_permalink(); ?>"><?php the_title(); ?><span><?php echo get_availability(); ?></span></a>
+							<a class="slot clearfix" href="<?php the_permalink(); ?>">
+								<span class="slot-title"><?php the_title(); ?></span>
+								<span class="slot-availability"><?php echo get_availability(); ?> available</span>
+							</a>
+
 						<?php } else { ?>
-							<a class="slot unavailable" href="<?php the_permalink(); ?>"><del><?php the_title(); ?></del><span><?php echo get_availability(); ?></span></a>
+							<a class="slot unavailable clearfix" href="<?php the_permalink(); ?>">
+								<span class="slot-title"><?php the_title(); ?></span>
+								<span class="slot-availability"><?php echo get_availability(); ?> available</span>
+							</a>
 						<?php }
 
 
