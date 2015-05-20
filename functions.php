@@ -326,7 +326,7 @@ we_are_live() is a function for testing our environment.
 function we_are_live(){
   $current_server = $_SERVER['HTTP_HOST'];
 
-  if ( $current_server == 'arts.vcu.edu' ){
+  if ( $current_server == 'rampages.us' ){
     return true;
   } else {
     return false;
